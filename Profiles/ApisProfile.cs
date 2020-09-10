@@ -8,7 +8,11 @@ namespace CoreApi.Profiles
     {
         public ApisProfile()
         {
+            //Source --> Target
             CreateMap<Api, ApiReadDto>();
+            CreateMap<ApiCreateDto, Api>();
+            CreateMap<ApiUpdateDto, Api>();
+            CreateMap<Api, ApiUpdateDto>();
         }
     }
 }

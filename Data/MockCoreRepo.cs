@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using CoreApi.Models;
 
 namespace CoreApi.Data
@@ -22,5 +22,20 @@ namespace CoreApi.Data
 
             return api;
         }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void CreateApi(Api ap)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateApi(Api update)
+        {
+            throw new System.NotImplementedException();
+        }
     }
-}
+}*/

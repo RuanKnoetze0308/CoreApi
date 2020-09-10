@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace CoreApi
 {
@@ -31,11 +32,13 @@ namespace CoreApi
             services.AddDbContext<ApiContext>(opt => opt.UseSqlServer
             (Configuration.GetConnectionString("ApiConnection")));
             
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s => {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-             services.AddScoped<IApiRepo, SqlApiRepo>();
+            services.AddScoped<IApiRepo, SqlApiRepo>();
         }
 
         
